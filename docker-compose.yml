@@ -1,0 +1,14 @@
+services:
+  wcp-docker-agent:
+    build: .
+    image: penrithbeacon/wcp-docker-agent
+    container_name: wcp-docker-agent
+    ports:
+      - "3745:3745"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:rw
+      - agent_data:/app/data
+    restart: unless-stopped
+
+volumes:
+  agent_data:
