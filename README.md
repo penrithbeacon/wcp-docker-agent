@@ -169,11 +169,18 @@ curl $NAS_URL/health
 ## Technical Details
 
 - **Base image:** `python:3.12-slim`
+- **Platforms:** `linux/amd64`, `linux/arm64`
 - **Port:** `3745`
 - **Framework:** Flask
 - **Dependencies:** Flask, docker (Python SDK)
 - **Docker socket:** mounted at `/var/run/docker.sock:rw`
 - **Persistent storage:** Named Docker volume for token persistence
+
+---
+
+## Platform History
+
+`latest` was rebuilt as a multi-arch image on 2026-06-05, adding `linux/amd64` support (Synology NAS, Intel/AMD servers). The initial release was built on Apple Silicon and is `linux/arm64` only.
 
 ---
 
