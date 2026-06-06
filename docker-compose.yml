@@ -8,6 +8,8 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:rw
       - agent_data:/app/data
+    environment:
+      - CONTAINER_NAME=wcp-docker-agent
     restart: unless-stopped
 
 volumes:

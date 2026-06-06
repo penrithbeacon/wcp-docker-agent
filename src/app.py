@@ -70,8 +70,10 @@ def cors_preflight(p=''):
 # ── Endpoints ─────────────────────────────────────────────────────────────────
 
 @app.route('/health')
+@app.route('/widget/health')
 def health():
-    return jsonify({'status': 'ok', 'name': 'wcp-docker-agent'})
+    return jsonify({'status': 'ok', 'name': 'wcp-docker-agent',
+                    'container': os.environ.get('CONTAINER_NAME', 'unknown')})
 
 @app.route('/containers')
 @require_auth
